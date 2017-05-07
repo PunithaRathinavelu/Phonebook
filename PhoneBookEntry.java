@@ -5,11 +5,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
-
-
-
 class PhoneBookEntry implements Serializable{
- 
  private String FirstName;
  private String LastName;
  private String Address;
@@ -18,14 +14,11 @@ class PhoneBookEntry implements Serializable{
  
  //constructor
  PhoneBookEntry(String fname, String lname, String address, String emailid, String phone){
-  
   this.FirstName=fname;
   this.LastName=lname;
   this.Address=address;
   this.EmailId=emailid;
   this.Phone=phone;
-  
-  
  }
  //get first name
  public String getFirstName(){

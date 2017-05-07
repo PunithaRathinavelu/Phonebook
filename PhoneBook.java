@@ -1,15 +1,5 @@
 import java.awt.Desktop;
 import java.io.*;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.*;
 
 public class PhoneBook{
@@ -40,26 +30,18 @@ public class PhoneBook{
       System.out.println("Press y to continue:");
       con=(char)isr.read();
      }catch(IOException ie){}
-     
-     
     }
-    
-    }
+  }
    
    //The viewAll method displays all entries in the phonebook
    public static void viewAll(){
-    
-    if(phonebook!=null){
-     
-     for(Enumeration<String> e=phonebook.keys(); e.hasMoreElements();){
+     if(phonebook!=null){
+      for(Enumeration<String> e=phonebook.keys(); e.hasMoreElements();){
       PhoneBookEntry entry=phonebook.get(e.nextElement());
       entry.printInfo();
      }
-
     }
-    
-   }
-   
+  }
    
    //The addToPhoneBook method is able to add each entry to the phonebook
    public static void addToPhoneBook(){
@@ -105,10 +87,8 @@ public class PhoneBook{
      else
       System.out.println("Wrong name");
      }catch(IOException ie){}
-     
-     
-    }
   }
+}
   
    //The searchByName method has code to find a phonebook entry by name in the list
    public static void editByName(){
@@ -136,12 +116,9 @@ public class PhoneBook{
      else
       System.out.println("Not found");
      }catch(IOException ie){}
-     
-     
-    }
-   }
+  }
+}
    
- 
    public static void searchByName(){
 	    if(phonebook!=null){
 	     try{
@@ -151,12 +128,9 @@ public class PhoneBook{
 	     PhoneBookEntry cu=phonebook.get(key);
 	     if(cu!=null)
 	      cu.printInfo();
-	      
 	     else
 	      System.out.println("Not found");
 	     }catch(IOException ie){}
-	     
-	     
 	    }
 	   }
    
@@ -168,8 +142,7 @@ public class PhoneBook{
     oos.writeObject(obj);
     oos.flush();
     oos.close();
-    }catch(IOException ie){}
-    
+    }catch(IOException ie){}    
    }
    
    //The readList method has code to read phonebook from the file
@@ -182,14 +155,11 @@ public class PhoneBook{
     ObjectInputStream ois=new ObjectInputStream(fis);
     phbook=(Hashtable<String,PhoneBookEntry>)ois.readObject();
     ois.close();
-   
     }catch(Exception ie){}
     return phbook;
-    
    }
 
-   
-   //This method display options menu
+    //This method display options menu
    public static void showMenu(){
     System.out.println("1. Add to phonebook");
     System.out.println("2. Remove from phonebook");
@@ -198,7 +168,4 @@ public class PhoneBook{
     System.out.println("5. Edit By firstname");
     System.out.println("6. Exit");
    }
-   
-
 }
-
