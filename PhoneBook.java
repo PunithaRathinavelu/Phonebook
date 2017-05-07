@@ -48,7 +48,7 @@ public class PhoneBook{
     //If the phonebook null, allocate memory for it so it is ready to get the new item
     if(phonebook==null) phonebook=new Hashtable<String,PhoneBookEntry>();
     try{
-    	int limit=200;
+    	int limit=200;// limit indicates that maximum of 200 entries can be added in the phonebook
         int size= phonebook.size();
         if(size<limit){
     BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
