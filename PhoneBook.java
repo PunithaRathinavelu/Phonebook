@@ -19,6 +19,7 @@ public class PhoneBook{
     int choice;
     char con='y';
     Scanner sc=new Scanner(System.in); //create scanner object to receive choice input 
+    
     while(con=='y'){
      showMenu(); //show menu
      System.out.println("Enter your choice:");
@@ -43,8 +44,8 @@ public class PhoneBook{
      
     }
     
-    
-   }
+    }
+   
    //The viewAll method displays all entries in the phonebook
    public static void viewAll(){
     
@@ -65,6 +66,9 @@ public class PhoneBook{
     //If the phonebook null, allocate memory for it so it is ready to get the new item
     if(phonebook==null) phonebook=new Hashtable<String,PhoneBookEntry>();
     try{
+    	int limit=200;
+        int size= phonebook.size();
+        if(size<limit){
     BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     System.out.println("Enter first name:");
     String fname=br.readLine();   
@@ -79,7 +83,9 @@ public class PhoneBook{
     PhoneBookEntry st=new PhoneBookEntry(fname,lname,address,emailid,phone);
     phonebook.put(fname,st); //add new entry to the phonebook
     writeIt(phonebook); //save the update phonebook
-    }catch(IOException e){}
+        }
+        else{System.out.println("Reached the limit, no more entries can be added!");}
+      }catch(IOException e){}
    }
    
    //The deleteFromPhonebook method is able to delete an entry when the name
